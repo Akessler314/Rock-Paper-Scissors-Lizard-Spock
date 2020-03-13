@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors-Lizard-Spock</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body class=body>
+    <Header>
+        <h1> Rock-Paper-Scissors-Lizard-Spock </h1>
+        <br>
+        <br>
+        <br>
+
+
+    </Header>
+    <main>
+     
+
+        <div class="container">
+            <div class="row">
+                <div class="card p-1">
+                    <div class="col-sm-12">
+                        Rock-Paper-Scissors-Lizard-Spock, is a game popularized by TV show "Big Bang Theory" it is an
+                        expansion on the popular hand motion game Rock-Paper-Scissors, Where each choice you make is
+                        defeated by 2 of the other options and beats the 2 of the other options instead of each choice beating 1 thing and being defeated by the other 
+                        <br>
+                        <br>
+                        To play the game here, you will need to refresh this page and enter your choice of
+                        Rock-Paper-Scissors-Lizard-Spock when promted, you will play against a computer who will pick
+                        Rock-Paper-Scissors-Lizard-Spock at random and then you will be promted if you were: victorious,
+                        lost or tied against the computer
+                        <br>
+                        <br>
+                        If you would like an explanation of the rules from Sheldon Cooper himself watch on YouTube here:
+                        <br>
+                        <a href="https://www.youtube.com/watch?v=x5Q6-wMx-K8">Sledon's explanation</a>
+                        <br>
+                        <br>
+                        Thanks for playing!
+                        <br>
+                        <br>
+                        <img src="RPSLSP.jpg"  class="center" alt="Image showing the games rules">
+
+                    </div>
+                    <div class="container">
+
+                        
+            
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+
+
+    <script>
+
+        alert("Welcome to Rock-Paper-Scissors-Lizard-Spock! Press 'OK' to continue, press cancel any time to see the rules ")
+
+        //Choices and what choice beats what 
+
+        var choices = {
+            rock: { name: "Rock", defeats: ["scissors", "lizard"] },
+
+            paper: { name: "Paper", defeats: ["rock", "spock"] },
+
+            scissors: { name: "Scissors", defeats: ["paper", "lizard"] },
+
+            lizard: { name: "Lizard", defeats: ["paper", "spock"] },
+
+            spock: { name: "Spock", defeats: ["scissors", "rock"] }
+        };
+
+
+        //Get the computer's choice
+        var computerChoice = Math.random();
+
+        if (computerChoice < 0.2) {
+            computerChoice = "rock";
+
+        } else if (computerChoice <= 0.4) {
+            computerChoice = "paper";
+
+        } else if (computerChoice <= 0.6) {
+            computerChoice = "scissors";
+
+        } else if (computerChoice <= 0.8) {
+            computerChoice = "lizard";
+
+        } else {
+            computerChoice = "spock";
+        }
+
+        // Variables to hold the number of wins, losses, and ties, starting at 0  |||||Not Yet implimented ||||||||| Also needs the alert to display wins 
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+
+
+        //Get the users choice, .toLowerCase to make the input not case sensative
+        var userChoice = prompt("What do you pick; rock, paper, scissors, lizard, or spock?").toLowerCase();
+
+        alert("The computer chose " + computerChoice);
+
+        //Checking computer choise for a tie
+        if (computerChoice === userChoice) {
+            alert("It's a tie");
+            //Checking if the input was a valid choice game ends if choise is undefined 
+        } else if (choices[userChoice] === undefined) {
+            alert("Invalid Choice! It is possible you did not spell your choice correctly");
+
+        } else {
+            userChoice = choices[userChoice];
+
+            var victory = userChoice.defeats.indexOf(computerChoice) > -1;
+
+            //Result Options
+            if (victory) {
+                alert("Vitory! " + userChoice.name + " wins!")
+            } else {
+                alert("Defeat, " + computerChoice + " wins!");
+            }
+        }
+
+        alert("refresh browser to play again, press 'OK' to see the rules")
+
+
+    </script>
+
+</body>
+
+</html>
